@@ -5,6 +5,11 @@
 
  - This repository is the start of the Soccer Match & Team Explorer web application project for WDD 330.
 
+ - https://soccer-match-team-explorer.onrender.com
+
+ - https://github.com/victorvegak/Soccer-Match-Team-Explorer
+
+
 ### Prerequisites
 
 - You must have Node installed to run the following commands.
