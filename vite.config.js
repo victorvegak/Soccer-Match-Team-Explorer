@@ -13,7 +13,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "src/index.html"),
-        product1: resolve(__dirname, "src/pages/team.html"),
+        team: resolve(__dirname, "src/pages/team.html"),
+        favorites: resolve(__dirname, "src/pages/favorites.html"),
       },
     },
   },
