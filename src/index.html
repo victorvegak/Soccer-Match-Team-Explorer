@@ -12,18 +12,25 @@
       <nav>
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/teams.html">Teams</a></li>
-          <li><a href="/matches.html">Matches</a></li>
+          <li><a href="/pages/team.html">Teams</a></li>
+          <li><a href="/pages/favorites.html">Favorites</a></li>
         </ul>
       </nav>
     </header>
-  <h1>Soccer Teams</h1>
+<main>
+  <h1>League Standings</h1>
+  <div class="standings"></div>
+  <h2>Soccer Teams</h2>
+  <input type="text" id="search" placeholder="Search teams..." class="search-input"/>
   <div class="team-list"></div>
+  <h2>Recent Matches</h2>
+  <div class="matches"></div>
 </main>
-
-<script type="module" src="/js/main.js"></script>
     <footer>
       &copy;2026 Soccer Match & Team Explorer. All rights reserved.
     </footer>
+    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/js/loader.js"></script>
   </body>
 </html>
+

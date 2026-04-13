@@ -1,3 +1,39 @@
-<div class="team-detail"></div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soccer Match & Team Explorer | Teams</title>
 
-<script type="module" src="/js/team.js"></script>
+    <!-- ✅ FIXED CSS PATH -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <!-- ✅ FIXED LINKS -->
+          <li><a href="/">Home</a></li>
+          <li><a href="./team.html">Teams</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Team Details</h1>
+
+      <div class="team-detail"></div>
+
+      <h2>Recent Matches</h2>
+      <div class="matches"></div>
+    </main>
+
+    <footer>
+      &copy; 2026 Soccer Match & Team Explorer. All rights reserved.
+    </footer>
+    <script type="module" src="/js/team.js"></script>
+    <script type="module" src="/js/loader.js"></script>
+    <script type="module" src="/js/transition.js"></script>
+  </body>
+</html>

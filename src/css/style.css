@@ -7,6 +7,7 @@
   --tertiary-color: #8a470c;
   --light-grey: #d0d0d0;
   --dark-grey: #303030;
+  /* background: linear-gradient(90deg, #ff0000, #ff4d4d); */
 
   /* sizes */
   --font-base: 18px;
@@ -24,8 +25,23 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  -webkit-transition: opacity 0.4s ease;
+  -moz-transition: opacity 0.4s ease;
+  -ms-transition: opacity 0.4s ease;
+  -o-transition: opacity 0.4s ease;
 }
 
+body.fade-out {
+  opacity: 0;
+} 
+
+body.fade-in {
+  opacity: 0;
+  animation: fadeInPage 0.4s ease forwards;
+  -webkit-animation: fadeInPage 0.4s ease forwards;
+}
 .team-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -54,6 +70,152 @@ body {
   color: black;
 }
 
+.match-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+.loader {
+  text-align: center;
+  padding: 2rem;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ddd;
+  border-top: 5px solid #2ecc71;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  animation: spin 1s linear infinite;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* YouTube-style top loader */
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: #ff0000; /* YouTube red */
+  z-index: 9999;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+.fav-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.fav-btn:hover {
+  transform: scale(1.2);
+}
+
+.fav-btn.active {
+  color: gold;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+.standings-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.standings-table th,
+.standings-table td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+.standings-table th:hover {
+  background-color: #f0f0f0;
+}
+.standings-table tr:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.team-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.team-logo {
+  width: 24px;
+  height: 24px;
+}
+
+.top-team {
+  background-color: rgba(0, 200, 0, 0.1);
+  border-left: 4px solid green;
+}
+
+.relegation {
+  background-color: rgba(255, 0, 0, 0.1);
+  border-left: 4px solid red;
+}
+
+.favorites-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.remove-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px;
+  margin-top: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.remove-btn:hover {
+  background: darkred;
+}
+
+/* animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInPage {
+  to {
+    opacity: 1;
+  }
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -68,6 +230,7 @@ body {
     font-size: inherit;
     grid-template-columns: 150px auto 15%;
   }
+  
 }
 
 footer {
