@@ -1,17 +1,34 @@
 import TeamDetails from "./TeamDetails.mjs";
 import Match from "./Match.mjs";
 
-const params = new URLSearchParams(window.location.search);
-const teamId = Number(params.get("id"));
+function initTeamPage() {
+  const params = new URLSearchParams(window.location.search);
+  const teamId = Number(params.get("id"));
 
-if (!teamId) {
-  document.querySelector(".team-detail").innerHTML =
-    "<p>Please select a team from the list.</p>";
-  window.location.href = "/";
+  const detailContainer = document.querySelector(".team-detail");
+  const matchesContainer = document.querySelector(".matches");
+
+  // 🛑 If no ID
+  if (!teamId) {
+    if (detailContainer) {
+      detailContainer.innerHTML = "<p>Select a team from the Teams page.</p>";
+    }
+
+    if (matchesContainer) {
+      matchesContainer.innerHTML = "";
+    }
+
+    console.warn("No team ID provided");
+    return; // ✅ NOW VALID
+  }
+
+  // ✅ Load data
+  const team = new TeamDetails(teamId, ".team-detail");
+  team.init();
+
+  const matches = new Match(teamId, ".matches");
+  matches.init();
 }
 
-const team = new TeamDetails(teamId, ".team-detail");
-team.init();
-
-const matches = new Match(teamId, ".matches");
-matches.init();
+// 🚀 Run it
+initTeamPage();

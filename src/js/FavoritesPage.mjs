@@ -6,6 +6,7 @@ export default class FavoritesPage {
   }
 
   init() {
+    if (!this.parent) return;
     this.render();
   }
 
@@ -18,14 +19,10 @@ export default class FavoritesPage {
       return;
     }
 
-    const html = teams.map(team => `
-      <div class="team-card">
+    const html = teams.map((team) => `
+      <div class="team-card fade-in">
         <a href="/pages/team.html?id=${team.idTeam}">
-          <img 
-            src="${team.strTeamBadge}" 
-            alt="${team.strTeam}"
-            onerror="this.src='/images/default-team.png'"
-          >
+          ${team.strBadge ? `<img src="${team.strBadge}" alt="${team.strTeam}" class="team-logo">` : ""}
           <h3>${team.strTeam}</h3>
         </a>
 
@@ -36,7 +33,6 @@ export default class FavoritesPage {
     `).join("");
 
     this.parent.innerHTML = html;
-
     this.addRemoveEvents();
   }
 
@@ -45,15 +41,14 @@ export default class FavoritesPage {
 
     this.parent.querySelectorAll(".remove-fav").forEach(btn => {
       btn.addEventListener("click", (e) => {
-        const id = e.target.dataset.id;
-
+        const id = Number(e.target.dataset.id);
         let favorites = fav.getFavorites();
-        favorites = favorites.filter(t => t.idTeam != id);
-
+        favorites = favorites.filter(t => Number(t.idTeam) !== id);
         fav.saveFavorites(favorites);
-
-        this.render(); // 🔥 re-render after remove
+        this.render();
       });
     });
   }
 }
+
+

@@ -1,0 +1,104 @@
+{
+  "Arsenal": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/arsenal.png",
+    "stadium": "Emirates Stadium",
+    "location": "London"
+  },
+  "Aston Villa": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/astonvilla.png",
+    "stadium": "Villa Park",
+    "location": "Birmingham"
+  },
+  "AFC Bournemouth": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/bournemouth.png",
+    "stadium": "Vitality Stadium",
+    "location": "Bournemouth"
+  },
+  "Brentford": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/brentford.png",
+    "stadium": "Brentford Community Stadium",
+    "location": "London"
+  },
+  "Brighton & Hove Albion": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/brighton.png",
+    "stadium": "Amex Stadium",
+    "location": "Falmer"
+  },
+  "Burnley": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/burnley.png",
+    "stadium": "Turf Moor",
+    "location": "Burnley"
+  },
+  "Chelsea": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/chelsea.png",
+    "stadium": "Stamford Bridge",
+    "location": "London"
+  },
+  "Crystal Palace": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/crystalpalace.png",
+    "stadium": "Selhurst Park",
+    "location": "London"
+  },
+  "Everton": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/everton.png",
+    "stadium": "Goodison Park",
+    "location": "Liverpool"
+  },
+  "Fulham": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/fulham.png",
+    "stadium": "Craven Cottage",
+    "location": "London"
+  },
+  "Leeds United": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/leeds.png",
+    "stadium": "Elland Road",
+    "location": "Leeds"
+  },
+  "Liverpool": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/liverpool.png",
+    "stadium": "Anfield",
+    "location": "Liverpool"
+  },
+  "Manchester City": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/mancity.png",
+    "stadium": "Etihad Stadium",
+    "location": "Manchester"
+  },
+  "Manchester United": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/manutd.png",
+    "stadium": "Old Trafford",
+    "location": "Manchester"
+  },
+  "Newcastle United": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/newcastle.png",
+    "stadium": "St James' Park",
+    "location": "Newcastle"
+  },
+  "Nottingham Forest": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/nottinghamforest.png",
+    "stadium": "City Ground",
+    "location": "Nottingham"
+  },
+  "Sunderland": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/sunderland.png",
+    "stadium": "Stadium of Light",
+    "location": "Sunderland"
+  },
+  "Tottenham Hotspur": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/tottenham.png",
+    "stadium": "Tottenham Hotspur Stadium",
+    "location": "London"
+  },
+  "West Ham United": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/westham.png",
+    "stadium": "London Stadium",
+    "location": "London"
+  },
+  "Wolverhampton Wanderers": {
+    "badge": "https://www.thesportsdb.com/images/media/team/badge/wolves.png",
+    "stadium": "Molineux Stadium",
+    "location": "Wolverhampton"
+  }
+}
+
+

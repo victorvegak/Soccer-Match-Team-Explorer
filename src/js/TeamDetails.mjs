@@ -7,7 +7,11 @@ export default class TeamDetails {
   }
 
   async init() {
-    const team = await getTeamById(this.id);
+    const data = await getTeamById(this.id);
+
+    // Some APIs return { teams: [...] }
+    const team = Array.isArray(data?.teams) ? data.teams[0] : data;
+
     this.render(team);
   }
 
@@ -16,11 +20,15 @@ export default class TeamDetails {
       this.parent.innerHTML = "<p>Team not found.</p>";
       return;
     }
+
     this.parent.innerHTML = `
       <h2>${team.strTeam}</h2>
-      <img src="${team.strTeamBadge || "https://via.placehold.co/150"}">
-      <p>${team.strCountry}</p>
-      <p>${team.strDescriptionEN?.slice(0, 200)}...</p>
+      ${team.strTeamBadge ? `<img src="${team.strTeamBadge}" alt="${team.strTeam}">` : ""}
+      <p><strong>Country:</strong> ${team.strCountry}</p>
+      <p>${team.strDescriptionEN ? team.strDescriptionEN.slice(0, 200) + "..." : "No description available."}</p>
     `;
   }
 }
+
+
+
