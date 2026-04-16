@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Soccer Match & Team Explorer | Home</title>
+    <title>Teams</title>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
 
@@ -17,26 +17,20 @@
         </ul>
       </nav>
     </header>
-<main>
-  <h1>Premier League</h1>
 
-  <!-- Standings -->
-  <section>
-    <h2>League Standings</h2>
-    <div class="standings"></div>
-  </section>
+    <main>
+    <h1>All Teams</h1>
 
-  <!-- Top Teams -->
-  <section>
-    <h2>Top Teams</h2>
-    <div class="top-teams"></div>
-  </section>
-</main>
+    <input type="text" id="search" placeholder="Search teams..." class="search-input"/>
+    <div class="team-list"></div>
+  </main>
+
+
     <footer>
-      &copy;2026 Soccer Match & Team Explorer. All rights reserved.
+      &copy; 2026 Soccer Match & Team Explorer. All rights reserved.
     </footer>
     <script type="module" src="/js/main.js"></script>
     <script type="module" src="/js/loader.js"></script>
+    <script type="module" src="/js/transition.js"></script>
   </body>
 </html>
-
