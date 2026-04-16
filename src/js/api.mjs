@@ -1,5 +1,6 @@
-// 🔥 Usa la URL del .env (Render también la leerá)
-const BASE_URL = import.meta.env.VITE_SERVER_URL;
+// 🔥 Base URL usando AllOrigins (no requiere activación, no da 403)
+const BASE_URL =
+  "https://api.allorigins.win/raw?url=https://www.thesportsdb.com/api/v1/json/3/";
 
 const CACHE_DURATION = 1000 * 60 * 60 * 24; // 24 hours
 
@@ -29,7 +30,7 @@ function setCache(key, data) {
   localStorage.setItem(key, JSON.stringify(payload));
 }
 
-// fetch with fallback + cache 
+// fetch with fallback + cache
 async function fetchWithCache(url, cacheKey) {
   try {
     const res = await fetch(url);
@@ -37,7 +38,6 @@ async function fetchWithCache(url, cacheKey) {
     const data = await res.json();
     if (data) setCache(cacheKey, data);
     return data;
-
   } catch (error) {
     console.warn("⚠️ API failed, using cache:", cacheKey);
 
@@ -51,7 +51,7 @@ async function fetchWithCache(url, cacheKey) {
 // Teams
 export async function getTeams() {
   const data = await fetchWithCache(
-    `${BASE_URL}search_all_teams.php?l=English Premier League`,
+    `${BASE_URL}search_all_teams.php?l=English%20Premier%20League`,
     "teams"
   );
 
@@ -70,7 +70,7 @@ export async function getTeamLogo(teamName) {
   const cachedTeams = getCache("teams");
   if (cachedTeams) {
     const team = cachedTeams.find(
-      t => t.strTeam.toLowerCase() === key
+      (t) => t.strTeam.toLowerCase() === key
     );
     if (team?.strTeamBadge) {
       logoMemoryCache[key] = team.strTeamBadge;
@@ -117,6 +117,7 @@ export async function getStandings() {
   );
   return data.table || [];
 }
+
 
 
 /* Search
