@@ -1,4 +1,6 @@
-const BASE_URL = "/api";
+// 🔥 Usa la URL del .env (Render también la leerá)
+const BASE_URL = import.meta.env.VITE_SERVER_URL;
+
 const CACHE_DURATION = 1000 * 60 * 60 * 24; // 24 hours
 
 // get cache and check expiration
@@ -7,7 +9,6 @@ function getCache(key) {
   if (!item) return null;
 
   const parsed = JSON.parse(item);
-
   const isExpired = Date.now() - parsed.timestamp > CACHE_DURATION;
 
   if (isExpired) {
@@ -34,9 +35,10 @@ async function fetchWithCache(url, cacheKey) {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`API error: ${res.status}`);
     const data = await res.json();
-    if (data) {setCache(cacheKey, data);}
+    if (data) setCache(cacheKey, data);
     return data;
-  }catch (error) {
+
+  } catch (error) {
     console.warn("⚠️ API failed, using cache:", cacheKey);
 
     const cached = getCache(cacheKey);
@@ -49,7 +51,7 @@ async function fetchWithCache(url, cacheKey) {
 // Teams
 export async function getTeams() {
   const data = await fetchWithCache(
-    `${BASE_URL}/search_all_teams.php?l=English Premier League`,
+    `${BASE_URL}search_all_teams.php?l=English Premier League`,
     "teams"
   );
 
@@ -76,43 +78,47 @@ export async function getTeamLogo(teamName) {
     }
   }
 
-  // ❌ No per-team API call here — rely on bulk cache
   console.warn("⚠️ Logo not found in cache:", teamName);
   return null;
 }
 
-// Other endpoints remain the same
+// Search
 export async function searchTeams(query) {
   const data = await fetchWithCache(
-    `${BASE_URL}/searchteams.php?t=${query}`,
+    `${BASE_URL}searchteams.php?t=${query}`,
     `search-${query}`
   );
   return data.teams || [];
 }
 
+// Team by ID
 export async function getTeamById(id) {
   const data = await fetchWithCache(
-    `${BASE_URL}/lookupteam.php?id=${id}`,
+    `${BASE_URL}lookupteam.php?id=${id}`,
     `team-${id}`
   );
   return data.teams?.[0] || null;
 }
 
+// Matches
 export async function getTeamMatches(teamId) {
   const data = await fetchWithCache(
-    `${BASE_URL}/eventslast.php?id=${teamId}`,
+    `${BASE_URL}eventslast.php?id=${teamId}`,
     `matches-${teamId}`
   );
   return data.results || [];
 }
 
+// Standings
 export async function getStandings() {
   const data = await fetchWithCache(
-    `${BASE_URL}/lookuptable.php?l=4328&s=2023-2024`,
+    `${BASE_URL}lookuptable.php?l=4328&s=2023-2024`,
     "standings"
   );
   return data.table || [];
 }
+
+
 /* Search
 export async function searchTeams(query) {
   const data = await fetchWithCache(
