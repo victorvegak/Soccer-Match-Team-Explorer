@@ -6,13 +6,13 @@
   --secondary-color: #525b0f;
   --tertiary-color: #8a470c;
   --light-grey: #d0d0d0;
-  --dark-grey: #303030;
- background: linear-gradient(90deg, #fbfaf86c, #ffffff); */
+--dark-grey: #303030;
+/* background: linear-gradient(90deg, #fbfaf86c, #ffffff); */
 
-  /* sizes */
-  --font-base: 18px;
-  --small-font: 0.8em;
-  --large-font: 1.2em;
+/* sizes */
+--font-base: 18px;
+--small-font: 0.8em;
+--large-font: 1.2em;
 }
 
 * {
