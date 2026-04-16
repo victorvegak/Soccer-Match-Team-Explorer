@@ -4,11 +4,10 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // Fade out on link click
-document.querySelectorAll("a").forEach(link => {
+document.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", function (e) {
     const href = this.getAttribute("href");
 
-   
     if (!href || href.startsWith("#") || this.target === "_blank") return;
 
     e.preventDefault();
