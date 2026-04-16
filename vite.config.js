@@ -24,8 +24,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "src/index.html"),
-        team: resolve(__dirname, "src/pages/team.html"), // ✅ FIXED (remove ?id=ID)
-        favorites: resolve(__dirname, "src/pages/favorites.html"), // ✅ FIXED path
+        teams: resolve(__dirname, "src/pages/teams.html"),
+        favorites: resolve(__dirname, "src/pages/favorites.html"),
+        team: resolve(__dirname, "src/pages/team.html"),
       },
     },
   },
