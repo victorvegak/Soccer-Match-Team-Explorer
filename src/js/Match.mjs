@@ -27,7 +27,7 @@ export default class Match {
       this.parent.innerHTML = this.loaderTemplate();
       const matches = await getTeamMatches(this.teamId);
 
-      // Separate upcoming vs past matches
+    
       const upcoming = matches.find(m => new Date(m.dateEvent) > new Date());
       const pastMatches = matches.filter(m => new Date(m.dateEvent) <= new Date());
 

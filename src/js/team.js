@@ -8,7 +8,7 @@ function initTeamPage() {
   const detailContainer = document.querySelector(".team-detail");
   const matchesContainer = document.querySelector(".matches");
 
-  // 🛑 If no ID
+
   if (!teamId) {
     if (detailContainer) {
       detailContainer.innerHTML = "<p>Select a team from the Teams page.</p>";
@@ -19,10 +19,10 @@ function initTeamPage() {
     }
 
     console.warn("No team ID provided");
-    return; // ✅ NOW VALID
+    return; 
   }
 
-  // ✅ Load data
+
   const team = new TeamDetails(teamId, ".team-detail");
   team.init();
 
@@ -30,5 +30,5 @@ function initTeamPage() {
   matches.init();
 }
 
-// 🚀 Run it
+
 initTeamPage();

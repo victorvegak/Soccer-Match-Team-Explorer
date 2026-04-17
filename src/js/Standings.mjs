@@ -46,7 +46,7 @@ export default class Standings {
   if (index < 4) {
     rowClass = "top-team"; 
   } else if (index >= table.length - 3) {
-    rowClass = "relegation"; // 🔴 Bottom 3
+    rowClass = "relegation"; 
   }
 
   return `

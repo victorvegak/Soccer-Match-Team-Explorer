@@ -1,4 +1,4 @@
-import { getStandings, getTeams } from "./api.mjs";
+import { getTeams } from "./api.mjs";
 import Favorites from "./Favorites.mjs";
 
 export default class TeamList {
@@ -8,8 +8,7 @@ export default class TeamList {
   }
 
   async init() {
-    this.teams = await getStandings(); // using standings instead of getTeams
-    this.teams = await getTeams(); // fetch all teams to get full details (like badges)
+    this.teams = await getTeams(); 
     this.render(this.teams);
     this.initSearch();
   }
@@ -23,11 +22,11 @@ export default class TeamList {
       return `
         <div class="team-card">
           <a href="/pages/team.html?id=${team.idTeam}">
-            ${team.strBadge ? `<img src="${team.strBadge}" alt="${team.strTeam}">` : ""}
+            ${team.strTeamBadge ? `<img src="${team.strTeamBadge}" alt="${team.strTeam}">` : ""}
             <h3>${team.strTeam}</h3>
           </a>
 
-          <button class="fav-btn ${isFav ? "active" : ""}" data-id="${team.teamid}">
+          <button class="fav-btn ${isFav ? "active" : ""}" data-id="${team.idTeam}">
             ⭐
           </button>
         </div>
@@ -44,8 +43,14 @@ export default class TeamList {
     this.parent.querySelectorAll(".fav-btn").forEach(btn => {
       btn.addEventListener("click", (e) => {
         e.stopPropagation();
+
         const id = Number(e.target.dataset.id);
-        const team = teams.find(t => Number(t.teamid) === id);
+        const team = teams.find(t => Number(t.idTeam) === id);
+
+        if (!team) {
+          console.error("Team not found:", id);
+          return;
+        }
 
         fav.toggleFavorite(team);
         e.target.classList.toggle("active");
@@ -60,16 +65,17 @@ export default class TeamList {
     let timeout;
     searchInput.addEventListener("input", (e) => {
       clearTimeout(timeout);
+
       timeout = setTimeout(() => {
         const value = e.target.value.toLowerCase();
+
         const filtered = this.teams.filter(team =>
           team.strTeam.toLowerCase().includes(value)
         );
+
         this.render(filtered);
       }, 300);
     });
   }
 }
-
-
 

@@ -11,7 +11,7 @@ export default class TopTeams {
     try {
       this.parent.innerHTML = this.loader();
 
-      // ✅ Get standings
+      // Get standings
       const standings = await getStandings();
 
       // Take top 4 teams by rank
